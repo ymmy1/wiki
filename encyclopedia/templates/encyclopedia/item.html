@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if not entry %}
+        <h1>Item doesnt exist yet. <a href="{% url 'encyclopedia:create' %}">Create a New Page?</a></h1>
+    {% else %}
+        <h1>{{ entry }}</h1>
+    {% endif %}
+
+{% endblock %}

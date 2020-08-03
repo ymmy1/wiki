@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Searched for "{{ key }}"</h1>
+
+    <ul>
+        {% for entry in entries %}
+            <li><a href="wiki/{{ entry }}">{{ entry }}</a></li>
+        {% empty %}
+            <li>Item doesnt exist yet. <a href="{% url 'encyclopedia:create' %}">Create a New Page?</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
