@@ -8,7 +8,9 @@
     {% if not entry %}
         <h1>Item doesnt exist yet. <a href="{% url 'encyclopedia:create' %}">Create a New Page?</a></h1>
     {% else %}
-        <h1>{{ entry }}</h1>
+    <a href="{% url 'encyclopedia:edit' name=title %}">Edit</a>    
+    <h1>{{ entry }}</h1>
+
     {% endif %}
 
 {% endblock %}
