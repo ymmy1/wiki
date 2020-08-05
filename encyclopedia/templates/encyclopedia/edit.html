@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>Edit Page </h1>
-    <p>Use <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#headings">Markdown language</a></p>
+    <p>Use <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#headings">Markdown language</a> to edit</p>
     <h4>{{ title }}</h4>
     <form action="{% url 'encyclopedia:edit' name=title %}" method="POST">
         {% csrf_token %}

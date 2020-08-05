@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>Create Page</h1>
-    <p>Use <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#headings">Markdown language</a></p>
+    <p>Use <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#headings">Markdown language</a> to create</p>
     <form action="{% url 'encyclopedia:create' %}" method="POST">
         {% csrf_token %}
         {{ form_create }}

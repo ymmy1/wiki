@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django import forms
 from django.http import HttpResponseRedirect
 import secrets
+from markdown2 import Markdown
 from . import util
 
 class NewSearchForm(forms.Form):
@@ -66,8 +67,9 @@ def edit(request, name):
 
 
 def wiki(request, name):
+    markdowner = Markdown()
     return render(request, "encyclopedia/item.html", {
-        "entry": util.get_entry(name),
+        "entry": markdowner.convert(util.get_entry(name)),
         "form": NewSearchForm(),
         "title": name
     })
