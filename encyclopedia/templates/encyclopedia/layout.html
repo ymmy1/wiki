@@ -7,28 +7,24 @@
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'encyclopedia/styles.css' %}">
         <link rel="icon" href="{% static 'encyclopedia/favicon.ico' %}" type="image/x-icon">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
-                <h2>Wiki</h2>
+                <span><img src="{% static 'encyclopedia/favicon.ico' %}" alt=""><h2>Wiki</h2></span>
                 <form action="{% url 'encyclopedia:search' %}" method="POST">
                     {% csrf_token %}
                     {{ form }}
                 </form>
-                <div>
-                    <a href="{% url 'encyclopedia:index' %}">Home</a>
-                </div>
-                <div>
-                    <a href="{% url 'encyclopedia:create' %}">Create New Page</a>
-                </div>
-                <div>
-                    <a href="{% url 'encyclopedia:random' %}">Random Page</a>
-                </div>
-                {% block nav %}
-                {% endblock %}
+                <ul>
+                    <li><a class="myButton" href="{% url 'encyclopedia:index' %}">Home</a></li>
+                    <li><a class="myButton" href="{% url 'encyclopedia:create' %}">Create New Page</a></li>
+                    <li><a class="myButton" href="{% url 'encyclopedia:random' %}">Random Page</a></li>
+                </ul>
+                    
             </div>
             <div class="main col-lg-10 col-md-9">
                 {% block body %}

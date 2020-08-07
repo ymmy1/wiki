@@ -6,7 +6,7 @@ from markdown2 import Markdown
 from . import util
 
 class NewSearchForm(forms.Form):
-    q = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'search', 'placeholder':"Search Encyclopedia" }))
+    q = forms.CharField(label="", widget=forms.TextInput(attrs={ 'class':'search', 'placeholder':"Search Encyclopedia", "autocomplete":"off"}))
 
 class NewCreateForm(forms.Form):
     title = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'create_title', 'placeholder':"Title" }))
@@ -19,8 +19,10 @@ class NewEditForm(forms.Form):
 
 
 def index(request):
+    entries = util.list_entries()
+    entries.sort()
     return render(request, "encyclopedia/index.html", {
-        "entries": util.list_entries(),
+        "entries": entries,
         "form": NewSearchForm()
     })
 
@@ -90,6 +92,7 @@ def search(request):
                     entries_list.append(entry)
 
             # If entry not found
+            entries_list.sort()
             return render(request, "encyclopedia/search.html", {
                 "key" : search,
                 "entries": entries_list,

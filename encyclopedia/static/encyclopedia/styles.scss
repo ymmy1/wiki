@@ -1,0 +1,202 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/e/e3/Wikipedia_logo_letters_banner.svg");
+    // white-space: pre;
+    .row
+    {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        .sidebar 
+        {
+            padding: 20px;
+            border-right: 1px solid #000000;
+            background-color: rgba(#2e466e, 0.8);
+            text-align: left;
+            span
+            {
+                display: flex;
+                align-items: center;
+                padding-bottom: 20px;
+                img
+                {
+                    width: 15%;
+                    margin-right: 8px;
+                }
+                
+                h2
+                {
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+            input
+            {
+                background-color: rgba(#2e466e, 0.4);
+                color: rgba(#ffffff, 0.4);
+                border-color: #007BFF;
+                border-radius: 0px 50px 50px 0;
+                padding: 5px 15px;
+                width: 100%;
+                
+                
+                &:focus
+                {
+                    color:white;
+                    outline: none;
+                    background-color: rgba(#2e466e, 0.8);
+                }
+                &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                    color: white;
+                    opacity: 0.8; /* Firefox */
+                  }
+            }
+            ul
+            {
+                padding: 20px 0 0 0;
+                margin: 0;
+                li
+                {
+                    list-style: none;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+        .main
+        {
+            .all-pages, .search
+            {
+                h1
+                {
+                    font-size: 3em;
+                    text-align: center;
+                    padding: 30px 0 ;
+                    margin: 0;
+                }
+                ul
+                {
+                    padding: 0 250px;
+                    margin: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    li
+                    {
+                        
+                        list-style: none;
+                        margin: 0 20px 20px 0;
+                        a
+                        {
+                            border-radius: 5px;
+                            padding: 20px;
+                            font-size: 1.5em;
+                        }
+
+                    }
+                }
+            }
+        }
+        .item
+        {
+            padding: 30px;
+            .editButton
+            {
+                width: 90px;
+                display: block;
+                color: white;
+                background:linear-gradient(to bottom, #bfbfbf 5%, grey 100%);
+                border: 1px solid gray;
+                border-radius: 5px;
+                padding: 5px 10px;
+                margin-bottom: 10px;
+                text-align: center;
+                &:hover 
+                {
+                    background:linear-gradient(to top, #bfbfbf 5%, grey 100%);
+                    color: rgba(#ffffff, 0.8);
+                    text-decoration: none;
+                }
+                &:active
+                {
+                    position:relative;
+                    top:1px;
+                }
+            }
+
+        }
+        .create, .edit
+        {
+            padding: 30px 0 ;
+            margin: 0;
+            h1
+            {
+                text-align: center;
+                font-size: 3em;
+            }
+            p
+            {
+                text-align: center;
+                font-size: 1.2em;
+            }
+            h4
+            {
+                margin-top: 40px;
+                text-align: center;
+                font-size: 2em;
+            }
+            form
+            {
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                width: 60%;
+                font-size: 1.1em;
+                input, textarea
+                {
+                    padding: 5px 10px;
+                    margin-bottom: 10px;
+                }
+                input[type=submit]
+                {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
+
+.myButton 
+{
+    box-shadow:inset 0px 0px 15px 3px #23395e;
+    background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+    background-color:rgba(#2e466e, 0.8);
+    border-radius:5px;
+    border:1px solid #1f2f47;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 13px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #263666;
+    &:hover 
+    {
+        background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+        background-color:#415989;
+        color: rgba(#ffffff, 0.8);
+        text-decoration: none;
+    }
+    &:active
+    {
+        position:relative;
+        top:1px;
+    }
+}
+

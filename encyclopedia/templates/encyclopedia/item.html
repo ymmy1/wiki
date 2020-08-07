@@ -1,16 +1,18 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Encyclopedia
+    Encyclopedia | {{ title }}
 {% endblock %}
 
 {% block body %}
-    {% if not entry %}
-        <h1>Item doesnt exist yet. <a href="{% url 'encyclopedia:create' %}">Create a New Page?</a></h1>
-    {% else %}
-    <a href="{% url 'encyclopedia:edit' name=title %}">Edit</a>    
-    {{ entry|safe }}
+    <div class="item">
+        {% if not entry %}
+            <h1>Item doesnt exist yet. <a href="{% url 'encyclopedia:create' %}">Create a New Page?</a></h1>
+        {% else %}
+        <a class="editButton" href="{% url 'encyclopedia:edit' name=title %}">Edit <i class="fas fa-edit"></i></a>
+        {{ entry|safe }}
 
-    {% endif %}
+        {% endif %}
+    </div>
 
 {% endblock %}
