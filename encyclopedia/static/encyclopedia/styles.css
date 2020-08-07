@@ -160,6 +160,10 @@ body .row .create, body .row .edit {
   margin: 0;
 }
 
+body .row .create .alert-danger, body .row .edit .alert-danger {
+  text-align: center;
+}
+
 body .row .create h1, body .row .edit h1 {
   text-align: center;
   font-size: 3em;

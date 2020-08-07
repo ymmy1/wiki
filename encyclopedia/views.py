@@ -36,6 +36,14 @@ def create(request):
         form = NewCreateForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data["title"]
+            all_entries = util.list_entries()
+            for entrie in all_entries:
+                if entrie.lower() == title.lower():
+                    return render(request, "encyclopedia/create.html", {
+                        "form": NewSearchForm(),
+                        "form_create": NewCreateForm(),
+                        "error" : "This Title currently exists!"
+                    })
             content = form.cleaned_data["content"]
             util.save_entry(title, content)
             return HttpResponseRedirect(f'/wiki/{title}')
