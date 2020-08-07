@@ -7,7 +7,7 @@
 {% block body %}
     <div class="item">
         {% if not entry %}
-            <h1>Item doesnt exist yet. <a href="{% url 'encyclopedia:create' %}">Create a New Page?</a></h1>
+            <h1>Item {{ title }} doesnt exist yet. <a href="{% url 'encyclopedia:create' %}">Create a New Page?</a></h1>
         {% else %}
         <a class="editButton" href="{% url 'encyclopedia:edit' name=title %}">Edit <i class="fas fa-edit"></i></a>
         {{ entry|safe }}

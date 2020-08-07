@@ -70,8 +70,14 @@ def edit(request, name):
 
 def wiki(request, name):
     markdowner = Markdown()
+    title = util.get_entry(name)
+    entry = None
+    if title:
+        entry = markdowner.convert(title)
+        
+
     return render(request, "encyclopedia/item.html", {
-        "entry": markdowner.convert(util.get_entry(name)),
+        "entry": entry,
         "form": NewSearchForm(),
         "title": name
     })
