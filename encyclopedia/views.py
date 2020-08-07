@@ -70,11 +70,11 @@ def edit(request, name):
 
 def wiki(request, name):
     markdowner = Markdown()
-    title = util.get_entry(name)
+    all_entries = util.list_entries()
     entry = None
-    if title:
-        entry = markdowner.convert(title)
-        
+    for entrie in all_entries:
+        if entrie.lower() == name.lower():
+            entry = markdowner.convert(util.get_entry(entrie))
 
     return render(request, "encyclopedia/item.html", {
         "entry": entry,
