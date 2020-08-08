@@ -70,6 +70,7 @@ def edit(request, name):
         
         context = {
             'form_edit': NewEditForm(initial={'content': page}),
+             "form": NewSearchForm(),
             'title': name
         }
 
